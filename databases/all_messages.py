@@ -1,9 +1,7 @@
-from pymongo import MongoClient
+from databases.settings import mongo_client as client
+from databases.models import Email
 
-from emails_flask.model import Email
-
-client = MongoClient('localhost', 27017)
-db = client['messages']
+db = client['messages_db']
 collection = db['all_messages']
 
 

@@ -1,8 +1,9 @@
 from flask import Blueprint, request, jsonify
 
 from databases.all_messages import insert_message
+from databases.suspicious_messages import insert_email
 from emails_kafka.producer import send_message
-from model import Email
+from databases.models import Email
 
 app_bp = Blueprint('app', __name__)
 
@@ -13,4 +14,5 @@ def get_email():
     email = Email(**data)
     send_message(email.sentences)
     insert_message(data)
+    insert_email(email)
     return jsonify({'message': 'hi'}), 200
