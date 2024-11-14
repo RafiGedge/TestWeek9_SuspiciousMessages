@@ -1,8 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from databases.models import Base, Email
-from databases.settings import postgres_url as db_url
+from databases import Base, Email, postgres_url as db_url
+# from databases.settings import postgres_url as db_url
 
 engine = create_engine(db_url)
 session_maker = sessionmaker(bind=engine)

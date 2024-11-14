@@ -1,0 +1,1 @@
+from emails_kafka.producer import send_message
